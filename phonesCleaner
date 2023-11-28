@@ -1,0 +1,17 @@
+// phone/phone.go
+package phone
+
+import "regexp"
+
+// CleanPhoneNumber очищает номер телефона от символов (, ), -, и пробелов
+func CleanPhoneNumber(input string) string {
+	// Убираем все символы кроме цифр
+	re := regexp.MustCompile(`[^0-9]`)
+	cleaned := re.ReplaceAllString(input, "")
+
+	// Добавляем "+" в начало
+	cleaned = "+" + cleaned
+
+	return cleaned
+}
+
